@@ -25,8 +25,27 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <h5 class="participants-heading">Participants</h5>
         `;
 
+        const participantsList = document.createElement("ul");
+        participantsList.className = "participants-list";
+        participantsList.setAttribute("aria-label", `Participants in ${name}`);
+
+        if (details.participants.length === 0) {
+          const emptyState = document.createElement("li");
+          emptyState.className = "participants-empty";
+          emptyState.textContent = "No participants yet";
+          participantsList.appendChild(emptyState);
+        } else {
+          details.participants.forEach((participant) => {
+            const participantItem = document.createElement("li");
+            participantItem.textContent = participant;
+            participantsList.appendChild(participantItem);
+          });
+        }
+
+        activityCard.appendChild(participantsList);
         activitiesList.appendChild(activityCard);
 
         // Add option to select dropdown
