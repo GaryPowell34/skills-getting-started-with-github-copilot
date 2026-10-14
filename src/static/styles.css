@@ -99,30 +99,61 @@ section h3 {
 }
 
 .participants-list li {
-  position: relative;
-  padding: 7px 10px 7px 29px;
-  overflow-wrap: anywhere;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  padding: 7px 8px 7px 12px;
   border-radius: 6px;
   background-color: #eef1ff;
   color: #374074;
   font-size: 0.9rem;
 }
 
-.participants-list li::before {
-  position: absolute;
-  left: 11px;
-  color: #536dca;
-  content: "•";
+.participants-list li > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .participants-list .participants-empty {
+  display: block;
   background-color: transparent;
   color: #777;
   font-style: italic;
 }
 
-.participants-list .participants-empty::before {
-  content: "";
+.participant-remove-button {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+  border-radius: 7px;
+  background-color: #fff0f0;
+  color: #b42332;
+}
+
+.participant-remove-button:hover,
+.participant-remove-button:focus-visible {
+  background-color: #b42332;
+  color: #fff;
+}
+
+.participant-remove-button:focus-visible {
+  outline: 3px solid #8795e3;
+  outline-offset: 2px;
+}
+
+.participant-remove-button svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .form-group {
